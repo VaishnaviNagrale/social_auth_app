@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:social_auth_app/screen/home_screen.dart';
 import 'package:social_auth_app/user/dashbord.dart';
 import 'control_login.dart';
 import 'userdetails_model.dart';

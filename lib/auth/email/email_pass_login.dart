@@ -2,10 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_auth_app/auth/email/forget_pass.dart';
 import 'package:social_auth_app/auth/signup.dart';
-import 'package:social_auth_app/auth/user_main.dart';
 import 'package:social_auth_app/screen/home_screen.dart';
 
 class EmailPassLoginScreen extends StatefulWidget {
+  const EmailPassLoginScreen({super.key});
+
   @override
   State<EmailPassLoginScreen> createState() => _EmailPassLoginScreenState();
 }
@@ -24,6 +25,7 @@ class _EmailPassLoginScreenState extends State<EmailPassLoginScreen> {
         email: email!,
         password: password!,
       );
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -34,7 +36,7 @@ class _EmailPassLoginScreenState extends State<EmailPassLoginScreen> {
       if (error.code == 'user-not-found') {
         print('No User Found For that email');
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             backgroundColor: Colors.blueGrey,
             content: Text(
               'No User Found For that email',
@@ -45,7 +47,7 @@ class _EmailPassLoginScreenState extends State<EmailPassLoginScreen> {
       } else if (error.code == 'wrong-password') {
         print('Wrong password provided by the user');
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+         const SnackBar(
             backgroundColor: Colors.blueGrey,
             content: Text(
               'Wrong password provided by the user',
@@ -72,10 +74,10 @@ class _EmailPassLoginScreenState extends State<EmailPassLoginScreen> {
         key: _formKey,
         autovalidateMode: AutovalidateMode.always,
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 44, horizontal: 15),
+          padding:const EdgeInsets.symmetric(vertical: 44, horizontal: 15),
           child: ListView(
             children: [
-              Padding(
+             const Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Image(
                   image: AssetImage('assets/images/login.jpg'),
@@ -85,7 +87,7 @@ class _EmailPassLoginScreenState extends State<EmailPassLoginScreen> {
                 margin: EdgeInsets.symmetric(vertical: 10),
                 child: TextFormField(
                   autofocus: false,
-                  decoration: InputDecoration(
+                  decoration:const InputDecoration(
                     labelText: 'Email',
                     labelStyle: TextStyle(fontSize: 15),
                     border: OutlineInputBorder(),
@@ -106,11 +108,11 @@ class _EmailPassLoginScreenState extends State<EmailPassLoginScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 10),
+                margin:const EdgeInsets.symmetric(vertical: 10),
                 child: TextFormField(
                   autofocus: false,
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration:const InputDecoration(
                     labelText: 'Password',
                     labelStyle: TextStyle(fontSize: 15),
                     border: OutlineInputBorder(),
@@ -129,7 +131,7 @@ class _EmailPassLoginScreenState extends State<EmailPassLoginScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 20.0),
+                margin:const EdgeInsets.symmetric(vertical: 20.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -144,7 +146,7 @@ class _EmailPassLoginScreenState extends State<EmailPassLoginScreen> {
                           userLogin();
                         }
                       },
-                      child: Text(
+                      child:const Text(
                         'Login',
                         style: TextStyle(
                           fontSize: 18.0,
@@ -156,11 +158,11 @@ class _EmailPassLoginScreenState extends State<EmailPassLoginScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ForgetPassword(),
+                            builder: (context) =>const ForgetPassword(),
                           ),
                         );
                       },
-                      child: Text(
+                      child:const Text(
                         'Forget password',
                         style: TextStyle(
                           fontSize: 12.0,
@@ -174,7 +176,7 @@ class _EmailPassLoginScreenState extends State<EmailPassLoginScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('New here?'),
+                   const Text('New here?'),
                     TextButton(
                       onPressed: () {
                         Navigator.push(
@@ -185,7 +187,7 @@ class _EmailPassLoginScreenState extends State<EmailPassLoginScreen> {
                           ),
                         );
                       },
-                      child: Text(
+                      child:const Text(
                         'Create an account',
                       ),
                     ),
