@@ -148,7 +148,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           TextButton(
                             onPressed: () async {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
+                               const SnackBar(
                                   backgroundColor: Colors.cyan,
                                   content: Text(
                                     'Sorry this is currently not avaliable',
